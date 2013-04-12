@@ -14,7 +14,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 --]]
 
-DEBUG = false
+DEBUG = true
 
 function descriptor()
    return {
@@ -35,16 +35,16 @@ function d_log(...)
 end
 
 function activate()
-   if vlc.object.input() then
+   if vlc.object.input() and vlc.object.vout() then
     vlc.var.add_callback( vlc.object.vout(), "mouse-button-down", mouse_press)
-    no_input = false
+    input_lost = false
   else
-    no_input = true
+    input_lost = true
   end
 end
 
 function deactivate()
-  if vlc.object.input() then
+  if vlc.object.input() and vlc.object.vout() then
     pcall(vlc.var.del_callback, vlc.object.vout(), "mouse-button-down", mouse_press)
   end
 end
@@ -55,16 +55,19 @@ function mouse_press( var, old, new, data )
 end
 
 function input_changed()
-  no_input = not not vlc.object.input()
-  d_log("input changed", "no_input " .. tostring(no_input))
+  input_lost = not not vlc.object.input()
+  input_lost_video = not not vlc.object.vout()
+  d_log("input changed", "input_lost " .. tostring(input_lost), "input_lost_video" .. tostring(input_lost_video))
 end
 
 function meta_changed()
-    d_log("meta changed " .. " no_input "  .. tostring(no_input) .. " input " .. tostring(not not vlc.object.input()))
-    if no_input and not not vlc.object.input() then
+    d_log("meta changed " .. " input_lost ", tostring(input_lost),
+    "input_lost_video ", tostring(input_lost_video),
+    "input "..tostring(not not vlc.object.input() and not not vlc.object.vout()))
+    if (input_lost or input_lost_video) and (vlc.object.input() and vlc.object.vout()) then
       pcall(vlc.var.del_callback, vlc.object.vout(), "mouse-button-down", mouse_press)
       vlc.var.add_callback( vlc.object.vout(), "mouse-button-down", mouse_press)
+      input_lost = false
     end
-    no_input = false
 end
 
