@@ -1,4 +1,39 @@
-vlc-clickpause
-==============
+Introduction
+============
 
-vlc-clickpause
+This extension allow playing/pausing videos by clicking on a screen.
+Similar to youtube videos behaviour.
+
+Installation
+============
+
+To install, drop "clickpause.lua" into the VLC extensions directory. 
+The extensions directories are located at:
+
+ - OS X systemwide: /Applications/VLC.app/Contents/MacOS/share/lua/extensions/
+ - OS X current user: ~/Library/Application Support/org.videolan.vlc/lua/extensions/
+ - Linux systemwide: depends upon distro
+ - Linux current user: ~/.local/share/vlc/lua/extensions/
+ - Windows systemwide: C:\Program Files\VideoLan\VLC\lua\extensions\
+ - Windows current user: I have no idea
+
+This extension was tested and sound working at following configurations:
+
+ * VLC: 2.0.1; OS: Windows XP
+ * VLC: 2.0.5; OS: Linux
+
+But it doesn't depend on specific things, and highly probably would work
+on other configurations.
+
+Usage
+=====
+
+In "View" menu tick "Click screen to Play/Pause".
+Enjoy!
+
+Know Bugs
+=========
+
+ * You need to tick it every time you open VLC. This is a limitation of it's lua api.
+
+
