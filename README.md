@@ -1,0 +1,4 @@
+vlc-clickpause
+==============
+
+vlc-clickpause
