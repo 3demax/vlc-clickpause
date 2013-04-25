@@ -6,7 +6,7 @@ Similar to youtube videos behaviour.
 
 Download
 ========
-[project on github](http://3demax.github.io/vlc-clickpause/)
+From [project on github](http://3demax.github.io/vlc-clickpause/) or 
 [videolan addons page](http://addons.videolan.org/content/show.php/Click+to+Play%2BPause?content=158285&PHPSESSID=6ac0dbec95c0dee45c8b4b1c494a0ff1)
 
 Installation
