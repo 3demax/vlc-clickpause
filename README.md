@@ -19,8 +19,8 @@ The extensions directories are located at:
  - OS X current user: ~/Library/Application Support/org.videolan.vlc/lua/extensions/
  - Linux systemwide: depends upon distro
  - Linux current user: ~/.local/share/vlc/lua/extensions/
- - Windows systemwide: C:\Program Files\VideoLan\VLC\lua\extensions\
- - Windows current user: I have no idea
+ - Windows systemwide: %ProgramFiles%\VideoLAN\VLC\lua\extensions\
+ - Windows current user: %APPDATA%\vlc\lua\extensions\
 
 This extension was tested and sound working at following configurations:
 
