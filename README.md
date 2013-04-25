@@ -4,6 +4,11 @@ Introduction
 This extension allow playing/pausing videos by clicking on a screen.
 Similar to youtube videos behaviour.
 
+Download
+========
+[project on github](http://3demax.github.io/vlc-clickpause/)
+[videolan addons page](http://addons.videolan.org/content/show.php/Click+to+Play%2BPause?content=158285&PHPSESSID=6ac0dbec95c0dee45c8b4b1c494a0ff1)
+
 Installation
 ============
 
@@ -34,6 +39,6 @@ Enjoy!
 Know Bugs
 =========
 
- * You need to tick it every time you open VLC. This is a limitation of it's lua api.
+ * You need to tick it every time you open VLC. This is a limitation of VLC lua api.
 
 
