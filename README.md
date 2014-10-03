@@ -1,3 +1,9 @@
+Warning
+=======
+Due to changes in VLC's lua API, this project is deprecated and not supported anymore for VLC 2.1.* and higher! 
+Please take a look at [nurupo's plugin](https://github.com/nurupo/vlc-pause-click-plugin) instead. It does the same. 
+
+
 Introduction
 ============
 
